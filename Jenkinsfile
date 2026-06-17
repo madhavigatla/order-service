@@ -28,14 +28,9 @@ stage('Build') {
 
         stage('Build Docker image') {
             steps {
-
                 script {
-                sh '''
-                echo "PATH=$PATH"
-                which docker || true
-                /usr/local/bin/docker version || true
-                '''
-                               }
+                    sh 'docker build -t order-service .'
+                }
             }
         }
         stage('Archive') {
