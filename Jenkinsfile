@@ -9,11 +9,14 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'mvn clean package -DskipTests'
-            }
-        }
+stage('Build') {
+    tools {
+        maven 'Maven3'
+    }
+    steps {
+        sh 'mvn clean package -DskipTests'
+    }
+}
 
         stage('Test') {
             steps {
