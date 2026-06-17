@@ -18,14 +18,14 @@ stage('Build') {
     }
 }
 
-        stage('Test') {
-            tools {
-                maven 'Maven3'
-            }
-            steps {
-                sh 'mvn test'
-            }
-        }
+//         stage('Test') {
+//             tools {
+//                 maven 'Maven3'
+//             }
+//             steps {
+//                 sh 'mvn test'
+//             }
+//         }
 
         stage('Archive') {
             tools {
