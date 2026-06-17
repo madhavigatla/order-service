@@ -31,10 +31,11 @@ stage('Build') {
 
                 script {
                 sh '''
-                export PATH=$PATH:/Users/jiyanivanshi/.rd/bin
-                docker version
-                docker build -t order-service .
-                '''                }
+                echo "PATH=$PATH"
+                which docker || true
+                /usr/local/bin/docker version || true
+                '''
+                               }
             }
         }
         stage('Archive') {
