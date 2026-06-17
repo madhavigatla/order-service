@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
 
         stage('Checkout') {
@@ -11,7 +10,7 @@ pipeline {
 
 stage('Build') {
     tools {
-        maven 'Maven3'
+        maven 'Maven'
     }
     steps {
         sh 'mvn clean package -DskipTests'
@@ -29,7 +28,7 @@ stage('Build') {
 
         stage('Archive') {
             tools {
-                maven 'Maven3'
+                maven 'Maven'
             }
             steps {
                 archiveArtifacts artifacts: 'target/*.jar'
