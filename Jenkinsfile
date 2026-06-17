@@ -26,6 +26,13 @@ stage('Build') {
 //             }
 //         }
 
+        stage('Build Docker image') {
+            steps {
+                script {
+                    sh 'docker build -t order-service .'
+                }
+            }
+        }
         stage('Archive') {
             tools {
                 maven 'Maven'
