@@ -29,7 +29,7 @@ stage('Build') {
         stage('Build Docker image') {
             steps {
                 script {
-                    sh 'docker build -t order-service .'
+                    sh 'docker build -t a418faf43db4/order-service .'
                 }
             }
         }
@@ -40,7 +40,7 @@ stage('Build') {
                    sh 'docker login -u a418faf43db4 -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push order-service'
+                   sh 'docker push a418faf43db4/order-service'
                 }
             }
         }
