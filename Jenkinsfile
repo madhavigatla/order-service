@@ -51,7 +51,6 @@ stage('Build') {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar'
             }
-            }
         }
     }
 }
