@@ -56,7 +56,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>springboot-crud-k8s</finalName>
+		<finalName>order-service</finalName>
 	</build>
 
 </project>
