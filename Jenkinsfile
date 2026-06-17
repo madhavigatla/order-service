@@ -28,9 +28,13 @@ stage('Build') {
 
         stage('Build Docker image') {
             steps {
+
                 script {
-                    sh 'docker build -t order-service .'
-                }
+                sh '''
+                export PATH=$PATH:/Users/jiyanivanshi/.rd/bin
+                docker version
+                docker build -t order-service .
+                '''                }
             }
         }
         stage('Archive') {
