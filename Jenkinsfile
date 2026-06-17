@@ -44,13 +44,20 @@ stage('Build') {
                 }
             }
         }
-        stage('Archive') {
-            tools {
-                maven 'Maven'
-            }
-            steps {
-                archiveArtifacts artifacts: 'target/*.jar'
-            }
-        }
+                stage('Deploy to k8s'){
+                    steps{
+                        script{
+                            kubernetesDeploy (configs: 'app-deployment.yaml',kubeconfigId: 'k8sconfigpwd')
+                        }
+                    }
+                }
+//         stage('Archive') {
+//             tools {
+//                 maven 'Maven'
+//             }
+//             steps {
+//                 archiveArtifacts artifacts: 'target/*.jar'
+//             }
+//         }
     }
 }
