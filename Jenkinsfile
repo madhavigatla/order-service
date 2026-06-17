@@ -40,7 +40,7 @@ stage('Build') {
                    sh 'docker login -u a418faf43db4 -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push order-service-1.0'
+                   sh 'docker push order-service'
                 }
             }
         }
