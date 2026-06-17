@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name:  order-service-app
-          image: a418faf43db4/order-service
+          image: a418faf43db4/order-service:latest
           ports:
             - containerPort: 8080
           env:   # Setting Enviornmental Variables

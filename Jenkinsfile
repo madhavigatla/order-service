@@ -44,6 +44,17 @@ stage('Build') {
                 }
             }
         }
+        stage('Deploy to k8s'){
+                    steps{
+                        script{
+         withCredentials([file(credentialsId: 'k8sconfigpwd', variable: 'KUBECONFIG')]) {
+                    sh '''
+                        export KUBECONFIG=$KUBECONFIG
+                        kubectl apply -f app-deployment.yaml
+                    '''
+                }                }
+                    }
+                }
         stage('Archive') {
             tools {
                 maven 'Maven'
