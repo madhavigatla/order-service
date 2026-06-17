@@ -33,6 +33,17 @@ stage('Build') {
                 }
             }
         }
+        stage('Push image to Hub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u a418faf43db4 -p ${dockerhubpwd}'
+
+}
+                   sh 'docker push order-service-1.0'
+                }
+            }
+        }
         stage('Archive') {
             tools {
                 maven 'Maven'
